@@ -4,7 +4,34 @@ services:
     build: ./frontend
     ports:
       - "4200:4200"
+    depends_on:
+      - backend
+
   backend:
     build: ./backend
     ports:
       - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: todolist
+      DB_USERNAME: root
+      DB_PASSWORD: root
+
+  db:
+    image: mysql:8.0
+    container_name: todolist_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: todolist
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
