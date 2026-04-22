@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     zip unzip curl git \
     libonig-dev libxml2-dev libzip-dev \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && apt-get clean && rm -rf /var/lib/apt/lists/* 
 
 # GD config
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
