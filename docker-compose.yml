@@ -1,5 +1,6 @@
 version: '3'
 services:
+
   frontend:
     build: ./frontend
     ports:
@@ -10,7 +11,7 @@ services:
   backend:
     build: ./backend
     ports:
-      - "5000:5000"
+      - "8000:8000"        # ← corrigé : Laravel = 8000
     depends_on:
       - db
     environment:
@@ -32,6 +33,21 @@ services:
     volumes:
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
       - db_data:/var/lib/mysql
+
+  # ← AJOUT phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: todolist_phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    depends_on:
+      - db
 
 volumes:
   db_data:
