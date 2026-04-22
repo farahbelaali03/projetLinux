@@ -22,7 +22,7 @@
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [{ "glob": "**/*", "input": "public" }],
+            "assets": ["src/assets"],
             "styles": ["src/styles.css"],
             "scripts": []
           },
@@ -52,5 +52,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "3d8d396c-df46-42d7-bc58-8109cc5c9bd9"
   }
 }
