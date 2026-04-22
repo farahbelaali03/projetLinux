@@ -1,0 +1,23 @@
+# Node / Angular
+node_modules/
+.angular/
+dist/
+.npm/
+
+# Laravel / PHP
+vendor/
+bootstrap/cache/
+storage/logs/
+storage/framework/sessions/
+storage/framework/views/
+storage/framework/cache/
+.env
+
+# Docker
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
