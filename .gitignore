@@ -1,10 +1,14 @@
-# Laravel
-backend/vendor/
-backend/.env
-backend/storage/logs/*
-
-# Angular
-frontend/node_modules/
-
-# Docker
-*.log
+/dist
+/tmp
+/out-tsc
+/node_modules
+npm-debug.log
+yarn-error.log
+.idea/
+.vscode/*
+!.vscode/settings.json
+/.angular/cache
+.sass-cache/
+/coverage
+.DS_Store
+Thumbs.db
